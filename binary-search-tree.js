@@ -38,8 +38,17 @@ class BinarySearchTree {
     }
   }
 
-  search(val) {
+  search(val, currentNode=this.root) {
     // Your code here
+    if (!currentNode) return false;
+
+    if (currentNode.val === val) return true;
+
+    if (val < currentNode.val) return this.search(val, currentNode.left);
+
+    if (val > currentNode.val) return this.search(val, currentNode.right);
+
+    return false;
   }
 
 
