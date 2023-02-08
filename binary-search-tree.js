@@ -51,19 +51,45 @@ class BinarySearchTree {
     return false;
   }
 
-
   preOrderTraversal(currentNode = this.root) {
     // Your code here
+    console.log(currentNode.val);
+
+    if (currentNode.left) {
+      this.preOrderTraversal(currentNode.left);
+    } 
+
+    if (currentNode.right) {
+      this.preOrderTraversal(currentNode.right);
+    }
   }
 
 
   inOrderTraversal(currentNode = this.root) {
     // Your code here
+    if (currentNode.left) {
+      this.inOrderTraversal(currentNode.left);
+    }
+
+    console.log(currentNode.val);
+
+    if (currentNode.right) {
+      this.inOrderTraversal(currentNode.right);
+    }
   }
 
 
   postOrderTraversal(currentNode = this.root) {
     // Your code here
+    if (currentNode.left) {
+      this.postOrderTraversal(currentNode.left);
+    }
+
+    if (currentNode.right) {
+      this.postOrderTraversal(currentNode.right);
+    }
+
+    console.log(currentNode.val);
   }
 
     // Breadth First Traversal - Iterative
