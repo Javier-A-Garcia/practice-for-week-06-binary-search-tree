@@ -11,10 +11,31 @@ class BinarySearchTree {
 
   constructor() {
     // Your code here
+    this.root = null;
   }
 
   insert(val, currentNode=this.root) {
     // Your code here
+    if (!currentNode) {
+      this.root = new TreeNode(val);
+      return;
+    }
+
+    if(val < currentNode.val) {
+      if (!currentNode.left) {
+        currentNode.left = new TreeNode(val);
+      } else {
+        this.insert(val, currentNode.left);
+      }
+    }
+    
+    if (val > currentNode.val) {
+      if(!currentNode.right) {
+        currentNode.right = new TreeNode(val);
+      } else {
+        this.insert(val, currentNode.right);
+      }
+    }
   }
 
   search(val) {
